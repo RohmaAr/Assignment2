@@ -15,24 +15,73 @@ public class Assignment2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GenericStack<Integer> stack=new GenericStack<>();
+        GenericStack<Integer> stackI=new GenericStack<>();
+        
+            stackI.displayStack();
         for(int i=0;i<5;i++)
         {
-            stack.push(i);
+            stackI.push(i);
         }
+        
+            stackI.displayStack();
         try{
-            stack.displayStack();
+            
+            System.out.println("POPPING FROM STACK");
             for(int i=0;i<6;i++)
             {
-                System.out.println(" "+stack.pop());
+                System.out.println(" "+stackI.pop());
+            }
+        }
+        catch(ExceptionHandling e)
+        {
+            System.out.println(e.getMessage());
+         
+        }
+        //STACK FLOAT
+        GenericStack<Float> stackF=new GenericStack<>();
+         stackF.displayStack();
+        for(int i=0;i<5;i++)
+        {
+            stackF.push((float)(i+34.43));
+        }
+        
+            stackF.displayStack();
+        try{
+            
+            System.out.println("POPPING FROM STACK");
+            for(int i=0;i<6;i++)
+            {
+                System.out.println(" "+stackF.pop());
+            }
+        }
+        catch(ExceptionHandling e)
+        {
+            System.out.println(e.getMessage());
+         
+        }
+        
+    // STACK STRING
+        GenericStack<String> stackS=new GenericStack<>();
+         stackS.displayStack();
+        for(int i=0;i<5;i++)
+        {
+            stackS.push((String)("random characters"+i));
+        }
+        
+            stackS.displayStack();
+        try{
+            System.out.println("POPPING FROM STACK");
+            for(int i=0;i<6;i++)
+            {
+                System.out.println(" "+stackS.pop());
             }
         }
         catch(ExceptionHandling e)
         {
             System.out.println(e.getMessage());
         }
-    }
-    
+        
+    }   
 }
 class ExceptionHandling extends Exception{
     public ExceptionHandling(String m)
@@ -67,11 +116,18 @@ class GenericStack<T>{
     }
     public void displayStack()
     {
-        if(!isEmpty())
-            recur(bottom);
-        else
+        System.out.println("PRINTING STACK");
+        try{
+            if(!isEmpty())
+               recur(bottom);
+           else
+               throw new ExceptionHandling("Cannot display an empty stack"); 
+        }
+        catch(ExceptionHandling e)
         {
-            
+            System.out.println(e.getMessage());       
+                        e.printStackTrace();
+
         }
     }
     public boolean isEmpty()
