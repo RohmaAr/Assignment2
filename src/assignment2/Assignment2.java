@@ -16,12 +16,13 @@ public class Assignment2 {
     public static void main(String[] args) {
         // TODO code application logic here
         GenericStack<Integer> stackI=new GenericStack<>();
-        
+        System.out.println("PRINTING EMPTY STACK");
             stackI.displayStack();
         for(int i=0;i<5;i++)
         {
             stackI.push(i);
         }
+        System.out.println("PRINTING FILLED STACK");
         
             stackI.displayStack();
         try{
@@ -29,56 +30,78 @@ public class Assignment2 {
             System.out.println("POPPING FROM STACK");
             for(int i=0;i<6;i++)
             {
+                if(i==5)
+                {
+                    System.out.println("SHOULD THROW EXCEPTION NOW");
+                }
                 System.out.println(" "+stackI.pop());
+                
             }
         }
         catch(ExceptionHandling e)
         {
             System.out.println(e.getMessage());
-         
+            //e.printStackTrace();
+
         }
         //STACK FLOAT
         GenericStack<Float> stackF=new GenericStack<>();
+        System.out.println("PRINTING EMPTY STACK");
          stackF.displayStack();
         for(int i=0;i<5;i++)
         {
             stackF.push((float)(i+34.43));
         }
         
+        System.out.println("PRINTING FILLED STACK");
             stackF.displayStack();
         try{
             
             System.out.println("POPPING FROM STACK");
             for(int i=0;i<6;i++)
             {
+                if(i==5)
+                {
+                    System.out.println("SHOULD THROW EXCEPTION NOW");
+        
+                }
                 System.out.println(" "+stackF.pop());
             }
         }
         catch(ExceptionHandling e)
         {
             System.out.println(e.getMessage());
+            //e.printStackTrace();
          
         }
         
     // STACK STRING
         GenericStack<String> stackS=new GenericStack<>();
-         stackS.displayStack();
+         System.out.println("PRINTING EMPTY STACK");
+        stackS.displayStack();
         for(int i=0;i<5;i++)
         {
             stackS.push((String)("random characters"+i));
         }
         
+        System.out.println("PRINTING FILLED STACK");
             stackS.displayStack();
         try{
             System.out.println("POPPING FROM STACK");
             for(int i=0;i<6;i++)
             {
+                if(i==5)
+                {
+                    System.out.println("SHOULD THROW EXCEPTION NOW");
+                }
                 System.out.println(" "+stackS.pop());
             }
         }
         catch(ExceptionHandling e)
         {
             System.out.println(e.getMessage());
+            //e.printStackTrace();
+
         }
         
     }   
@@ -116,7 +139,6 @@ class GenericStack<T>{
     }
     public void displayStack()
     {
-        System.out.println("PRINTING STACK");
         try{
             if(!isEmpty())
                recur(bottom);
@@ -126,7 +148,7 @@ class GenericStack<T>{
         catch(ExceptionHandling e)
         {
             System.out.println(e.getMessage());       
-                        e.printStackTrace();
+             //e.printStackTrace();
 
         }
     }
