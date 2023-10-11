@@ -48,7 +48,7 @@ public class q3_l215757 {
             int j=i+1;
             if(j<list.size())
             {
-                if(list.get(i)[1]==(list.get(j)[0]-1))
+                if(list.get(i)[1]>list.get(j)[0] && list.get(i)[0]<list.get(j)[0])
                 {
                     list.get(i)[1]=list.get(j)[1];
                     list.remove(j);
